@@ -8,7 +8,7 @@ import {
 const getRepositoryData = async (owner) => {
    try {
       const response = await axios.get(
-         `https://api.github.com/users/${trimmedOwner}/repos`,
+         `https://api.github.com/users/${owner}/repos`,
          {
             headers: {
                Authorization: `token ${process.env.NEXT_PUBLIC_GIT_TOKEN}`,
