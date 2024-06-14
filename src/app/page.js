@@ -63,7 +63,6 @@ const Home = ({
             {usernameError && (
                <ErrorBox message='Please enter a gitHub username to search.' />
             )}
-
             {loading && !usernameError && <p>Loading...</p>}
             {repositories.length === 0 &&
                !loading &&

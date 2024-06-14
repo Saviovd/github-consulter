@@ -1,14 +1,30 @@
-import { RepositoryListStyle } from './RepositoryListStyle';
+import Link from 'next/link';
+import { Repository, RepositoryListStyle, Title } from './RepositoryListStyle';
 
 const RepositoryList = ({ owner, list }) => {
+   console.log(owner);
+   console.log(list);
    return (
       <>
-         {owner?.login ? <h2>Repositories of {owner.login}</h2> : <h2>Search for the user in the search bar above</h2>}
+         <Title>
+            Repositories of <span>{owner.login}</span>
+         </Title>
          <RepositoryListStyle>
             {list.map((repo) => (
-               <li key={repo.id}>
-                  <strong>{repo.name}</strong> - {repo.description}
-               </li>
+               <Repository key={repo.id}>
+                  <h3 className='repository-name'>{repo.name}</h3>
+                  <span className='owner'>
+                     by{' '}
+                     <Link
+                        href={`https://github.com/${owner.login}`}
+                        target='_blank'
+                        className='link'
+                     >
+                        {owner.login}
+                     </Link>
+                  </span>
+                  <p className='repository-description'>{repo.description ? repo.description : 'The repository has no description'}</p>
+               </Repository>
             ))}
          </RepositoryListStyle>
       </>
