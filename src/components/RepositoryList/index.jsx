@@ -1,8 +1,9 @@
-import { RepositoryListStyle } from "./RepositoryListStyle";
+import { RepositoryListStyle } from './RepositoryListStyle';
 
-const RepositoryList = ({ list }) => {
+const RepositoryList = ({ owner, list }) => {
    return (
       <>
+         {owner?.login ? <h2>Repositories of {owner.login}</h2> : <h2>Search for the user in the search bar above</h2>}
          <RepositoryListStyle>
             {list.map((repo) => (
                <li key={repo.id}>
