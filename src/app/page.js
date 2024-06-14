@@ -1,43 +1,20 @@
 'use client';
-import React, { useState, useEffect } from 'react';
-import getUserData from '@/api/getUser';
-import getRepositoryData from '@/api/getRepositories';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchRepositoriesRequest } from '@/store/actions/RepositoriesActions';
+import Search from '@/components/Search';
 
-const Home = () => {
-   const [userData, setUserData] = useState(null);
-   const [repositories, setRepositories] = useState([]);
-   const [loading, setLoading] = useState(true);
-
-   useEffect(() => {
-      const fetchData = async () => {
-         try {
-            const user = await getUserData();
-            setUserData(user);
-            console.log(user)
-            const repos = await getRepositoryData(
-               user.login
-            );
-            setRepositories(repos);
-
-            setLoading(false);
-         } catch (error) {
-            console.error('Error:', error);
-         }
-      };
-
-      fetchData();
-   }, []);
-
-   if (loading) {
-      return <p>Loading...</p>;
-   }
+const Home = ({ repositories, loading, error, fetchRepositories }) => {
+   const handleSearch = (username) => {
+      fetchRepositories(username);
+   };
 
    return (
       <div>
-         <h1>User Data:</h1>
-         <p>ID: {userData.id}</p>
-         <p>First Name: {userData.firstName}</p>
-         <p>Email: {userData.email}</p>
+         <Search onSearch={handleSearch} />
+
+         {loading && <p>Loading...</p>}
+         {error && <p>Error: {error}</p>}
 
          <h2>Repositories:</h2>
          <ul>
@@ -51,4 +28,14 @@ const Home = () => {
    );
 };
 
-export default Home;
+const mapStateToProps = (state) => ({
+   repositories: state.repositories.repositories,
+   loading: state.repositories.loading,
+   error: state.repositories.error,
+});
+
+const mapDispatchToProps = {
+   fetchRepositories: fetchRepositoriesRequest,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
