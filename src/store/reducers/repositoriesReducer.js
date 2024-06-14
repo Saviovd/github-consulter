@@ -1,13 +1,15 @@
 import {
-   FETCH_REPOSITORIES_REQUEST,
    FETCH_REPOSITORIES_SUCCESS,
    FETCH_REPOSITORIES_FAILURE,
+   FETCH_REPOSITORIES_REQUEST,
+   SET_SORT_TYPE,
 } from '../actions/RepositoriesActions';
 
 const initialState = {
    repositories: [],
    loading: false,
    error: null,
+   sortType: 'created:desc',
 };
 
 const repositoriesReducer = (state = initialState, action) => {
@@ -21,14 +23,19 @@ const repositoriesReducer = (state = initialState, action) => {
       case FETCH_REPOSITORIES_SUCCESS:
          return {
             ...state,
-            repositories: action.payload,
             loading: false,
+            repositories: action.payload,
          };
       case FETCH_REPOSITORIES_FAILURE:
          return {
             ...state,
             loading: false,
             error: action.payload,
+         };
+      case SET_SORT_TYPE:
+         return {
+            ...state,
+            sortType: action.payload,
          };
       default:
          return state;

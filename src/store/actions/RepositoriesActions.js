@@ -1,6 +1,7 @@
 export const FETCH_REPOSITORIES_REQUEST = 'FETCH_REPOSITORIES_REQUEST';
 export const FETCH_REPOSITORIES_SUCCESS = 'FETCH_REPOSITORIES_SUCCESS';
 export const FETCH_REPOSITORIES_FAILURE = 'FETCH_REPOSITORIES_FAILURE';
+export const SET_SORT_TYPE = 'SET_SORT_TYPE';
 
 export const fetchRepositoriesRequest = (username) => ({
    type: FETCH_REPOSITORIES_REQUEST,
@@ -15,4 +16,9 @@ export const fetchRepositoriesSuccess = (repositories) => ({
 export const fetchRepositoriesFailure = (error) => ({
    type: FETCH_REPOSITORIES_FAILURE,
    payload: error,
+});
+
+export const setSortType = (sortType) => ({
+   type: SET_SORT_TYPE,
+   payload: sortType,
 });
