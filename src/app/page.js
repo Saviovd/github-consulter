@@ -8,7 +8,7 @@ import {
 import Search from '@/components/Search';
 import RepositoryList from '@/components/RepositoryList';
 import SortBox from '@/components/SortBox';
-import { GlobalStyle } from '@/styles/GlobalStyle';
+import { GlobalStyle, HomeStyle } from '@/styles/GlobalStyle';
 import { selectSortedRepositories } from '@/store/selectors/repositoriesSelectors';
 
 const Home = ({
@@ -28,17 +28,23 @@ const Home = ({
    };
 
    return (
-      <div>
+      <>
          <GlobalStyle />
-         <Search onSearch={handleSearch} />
-         <SortBox sortType={sortType} onSortChange={handleSortChange} />
+         <HomeStyle>
+            <div className='top-bar'>
+               <Search onSearch={handleSearch} />
+               <SortBox sortType={sortType} onSortChange={handleSortChange} />
+            </div>
 
-         {loading && <p>Loading...</p>}
-         {error && <p>Error: {error}</p>}
+            {loading && <p>Loading...</p>}
+            {error && <p>Error: {error}</p>}
 
-         <h2>Repositories</h2>
-         <RepositoryList list={repositories} />
-      </div>
+            <RepositoryList
+               owner={repositories[0]?.owner}
+               list={repositories}
+            />
+         </HomeStyle>
+      </>
    );
 };
 
