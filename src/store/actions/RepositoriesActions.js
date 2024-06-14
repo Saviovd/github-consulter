@@ -10,15 +10,15 @@ export const fetchRepositoriesRequest = (username) => ({
 
 export const fetchRepositoriesSuccess = (repositories) => ({
    type: FETCH_REPOSITORIES_SUCCESS,
-   payload: repositories,
+   payload: { repositories },
 });
 
 export const fetchRepositoriesFailure = (error) => ({
    type: FETCH_REPOSITORIES_FAILURE,
-   payload: error,
+   payload: { error },
 });
 
 export const setSortType = (sortType) => ({
    type: SET_SORT_TYPE,
-   payload: sortType,
+   payload: { sortType },
 });

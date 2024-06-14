@@ -6,6 +6,10 @@ import {
    setSortType,
 } from '@/store/actions/RepositoriesActions';
 import Search from '@/components/Search';
+import RepositoryList from '@/components/RepositoryList';
+import SortBox from '@/components/SortBox';
+import { GlobalStyle } from '@/styles/GlobalStyle';
+import { selectSortedRepositories } from '@/store/selectors/repositoriesSelectors';
 
 const Home = ({
    repositories,
@@ -23,58 +27,23 @@ const Home = ({
       setSortType(event.target.value);
    };
 
-   const sortRepositories = (repos, type) => {
-      switch (type) {
-         case 'a-z':
-            return [...repos].sort((a, b) => a.name.localeCompare(b.name));
-         case 'z-a':
-            return [...repos].sort((a, b) => b.name.localeCompare(a.name));
-         case 'oldest':
-            return [...repos].sort(
-               (a, b) => new Date(a.created_at) - new Date(b.created_at)
-            );
-         case 'newest':
-            return [...repos].sort(
-               (a, b) => new Date(b.created_at) - new Date(a.created_at)
-            );
-         default:
-            return repos;
-      }
-   };
-
-   const sortedRepositories = sortRepositories(repositories, sortType);
-
    return (
       <div>
+         <GlobalStyle />
          <Search onSearch={handleSearch} />
-
-         <label>
-            Sort by:
-            <select value={sortType} onChange={handleSortChange}>
-               <option value='a-z'>A-Z</option>
-               <option value='z-a'>Z-A</option>
-               <option value='oldest'>Oldest First</option>
-               <option value='newest'>Newest First</option>
-            </select>
-         </label>
+         <SortBox sortType={sortType} onSortChange={handleSortChange} />
 
          {loading && <p>Loading...</p>}
          {error && <p>Error: {error}</p>}
 
-         <h2>Repositories:</h2>
-         <ul>
-            {sortedRepositories.map((repo) => (
-               <li key={repo.id}>
-                  <strong>{repo.name}</strong> - {repo.description}
-               </li>
-            ))}
-         </ul>
+         <h2>Repositories</h2>
+         <RepositoryList list={repositories} />
       </div>
    );
 };
 
 const mapStateToProps = (state) => ({
-   repositories: state.repositories.repositories,
+   repositories: selectSortedRepositories(state),
    loading: state.repositories.loading,
    error: state.repositories.error,
    sortType: state.repositories.sortType,
