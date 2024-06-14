@@ -1,15 +1,17 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import {
    fetchRepositoriesRequest,
    setSortType,
+   clearError,
 } from '@/store/actions/RepositoriesActions';
 import Search from '@/components/Search';
 import RepositoryList from '@/components/RepositoryList';
 import SortBox from '@/components/SortBox';
 import { GlobalStyle, HomeStyle } from '@/styles/GlobalStyle';
 import { selectSortedRepositories } from '@/store/selectors/repositoriesSelectors';
+import ErrorBox from '@/components/ErrorBox.js';
 
 const Home = ({
    repositories,
@@ -18,9 +20,25 @@ const Home = ({
    sortType,
    fetchRepositories,
    setSortType,
+   clearError,
 }) => {
+   const [searchedUsername, setSearchedUsername] = useState('');
+   const [usernameError, setUsernameError] = useState(false);
+
    const handleSearch = (username) => {
-      fetchRepositories(username);
+      clearError();
+
+      if (!username.trim()) {
+         setUsernameError(true);
+         return;
+      }
+
+      if (username !== searchedUsername) {
+         setSearchedUsername(username);
+         fetchRepositories(username);
+      }
+
+      setUsernameError(false);
    };
 
    const handleSortChange = (event) => {
@@ -33,16 +51,31 @@ const Home = ({
          <HomeStyle>
             <div className='top-bar'>
                <Search onSearch={handleSearch} />
+
                <SortBox sortType={sortType} onSortChange={handleSortChange} />
             </div>
 
-            {loading && <p>Loading...</p>}
-            {error && <p>Error: {error}</p>}
+            {error && (
+               <ErrorBox
+                  message={error.message || 'Failed to fetch repositories.'}
+               />
+            )}
+            {usernameError && (
+               <ErrorBox message='Please enter a gitHub username to search.' />
+            )}
 
-            <RepositoryList
-               owner={repositories[0]?.owner}
-               list={repositories}
-            />
+            {loading && !usernameError && <p>Loading...</p>}
+            {repositories.length === 0 &&
+               !loading &&
+               !error &&
+               searchedUsername && <p>No repositories found for this user.</p>}
+
+            {repositories.length > 0 && (
+               <RepositoryList
+                  owner={repositories[0]?.owner}
+                  list={repositories}
+               />
+            )}
          </HomeStyle>
       </>
    );
@@ -58,6 +91,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
    fetchRepositories: fetchRepositoriesRequest,
    setSortType,
+   clearError,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

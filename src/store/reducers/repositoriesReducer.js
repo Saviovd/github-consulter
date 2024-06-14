@@ -3,6 +3,7 @@ import {
    FETCH_REPOSITORIES_SUCCESS,
    FETCH_REPOSITORIES_FAILURE,
    SET_SORT_TYPE,
+   CLEAR_ERROR,
 } from '../actions/RepositoriesActions';
 
 const initialState = {
@@ -36,6 +37,11 @@ const repositoriesReducer = (state = initialState, action) => {
          return {
             ...state,
             sortType: action.payload.sortType,
+         };
+      case CLEAR_ERROR:
+         return {
+            ...state,
+            error: null,
          };
       default:
          return state;
