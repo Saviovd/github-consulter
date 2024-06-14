@@ -1,4 +1,8 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+   compilerOptions: {
+      styledComponents: true,
+   },
+};
 
 export default nextConfig;
