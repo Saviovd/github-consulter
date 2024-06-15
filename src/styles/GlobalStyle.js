@@ -7,7 +7,6 @@ const blue = '31 ,111 ,235';
 const grey = '141 ,150 ,160';
 const grey2 = '48 ,54 ,61';
 
-
 export const GlobalStyle = createGlobalStyle`
    :root {
       --light: ${light};
@@ -40,6 +39,7 @@ export const HomeStyle = styled.main`
    width: 90%;
    border-radius: 0.6rem;
    border: 1px solid rgba(var(--grey-2));
+   position: relative;
 
    .top-bar {
       display: flex;
@@ -49,4 +49,18 @@ export const HomeStyle = styled.main`
       background-color: rgba(var(--grey), 0.1);
       padding: 3rem;
    }
-`
+`;
+export const Assign = styled.div`
+   position: absolute;
+   right: 2rem;
+   bottom: 1rem;
+   p {
+      margin: 0;
+      font-size: 2.5rem;
+
+      .portfolio {
+         color: rgb(var(--blue));
+         text-decoration: none;
+      }
+   }
+`;

@@ -9,11 +9,12 @@ import {
 import Search from '@/components/Search';
 import RepositoryList from '@/components/RepositoryList';
 import SortBox from '@/components/SortBox';
-import { GlobalStyle, HomeStyle } from '@/styles/GlobalStyle';
+import { GlobalStyle, HomeStyle, Assign } from '@/styles/GlobalStyle';
 import { selectSortedRepositories } from '@/store/selectors/repositoriesSelectors';
 import ErrorBox from '@/components/ErrorBox';
 import Modal from '@/components/Modal';
 import Loading from '@/components/Loading';
+import Link from 'next/link';
 
 const Home = ({
    repositories,
@@ -72,6 +73,9 @@ const Home = ({
                   list={repositories}
                />
             )}
+            <Assign>
+               <p>Dev by <Link className='portfolio' href='https://savioalmeida.vercel.app/' target='_blank'>Sávio almeida</Link></p>
+            </Assign>
             <Modal />
          </HomeStyle>
       </>
