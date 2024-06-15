@@ -48,4 +48,10 @@ export const ModalContent = styled.div`
       right: 10px;
       cursor: pointer;
    }
+
+   @media screen {
+      @media (max-width: 600px) {
+         min-height: 500px;
+      }
+   }
 `;

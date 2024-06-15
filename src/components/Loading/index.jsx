@@ -13,7 +13,7 @@ const LoadingStyle = styled.div`
    display: flex;
    justify-content: center;
    position: absolute;
-   right: 1rem;
+   left: 1rem;
 `;
 
 export default Loading;

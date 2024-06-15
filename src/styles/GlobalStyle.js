@@ -63,6 +63,13 @@ export const HomeStyle = styled.main`
          }
       }
    }
+
+   h2 {
+      color: rgba(var(--light), .5);
+      width: 100%;
+      margin: 1rem auto;
+      text-align: center;
+   }
    @media screen {
       @media (max-width: 600px) {
          min-height: 580px;
@@ -77,6 +84,7 @@ export const Assign = styled.div`
    position: absolute;
    right: 2rem;
    bottom: 1rem;
+   background-color: rgba(var(--grey), 0.1);
 
    p {
       margin: 0;

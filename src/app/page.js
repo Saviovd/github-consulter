@@ -57,26 +57,37 @@ const Home = ({
 
                <SortBox sortType={sortType} onSortChange={handleSortChange} />
             </div>
-            {loading && !usernameError && <Loading loading={loading} size={30} />}
-            {error || repositories.length === 0 &&
-               searchedUsername && !loading && (
-               <ErrorBox
-                  message={'No repositories found for this user.'}
-               />
+            {loading && !usernameError && (
+               <Loading loading={loading} size={30} />
             )}
+            {error ||
+               (repositories.length === 0 && searchedUsername && !loading && (
+                  <ErrorBox message={'No repositories found for this user.'} />
+               ))}
             {usernameError && (
                <ErrorBox message='Please enter a gitHub username to search.' />
             )}
-            {repositories.length > 0 && (
+            {repositories.length > 0 ? (
                <RepositoryList
                   owner={repositories[0]?.owner}
                   list={repositories}
                />
+            ) : (
+               <h2>Enter your username to view your repositories</h2>
             )}
-            <Assign>
-               <p>Dev by <Link className='portfolio' href='https://savioalmeida.vercel.app/' target='_blank'>Sávio almeida</Link></p>
-            </Assign>
             <Modal />
+            <Assign>
+               <p>
+                  Dev by{' '}
+                  <Link
+                     className='portfolio'
+                     href='https://savioalmeida.vercel.app/'
+                     target='_blank'
+                  >
+                     Sávio Almeida
+                  </Link>
+               </p>
+            </Assign>
          </HomeStyle>
       </>
    );
