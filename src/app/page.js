@@ -59,7 +59,7 @@ const Home = ({
             {loading && !usernameError && <Loading loading={loading} />}
             {error && (
                <ErrorBox
-                  message={error.message || 'Failed to fetch repositories.'}
+                  message={error.message || 'No repositories found for this user.'}
                />
             )}
             {usernameError && (

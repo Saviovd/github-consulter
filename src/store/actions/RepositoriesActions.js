@@ -42,7 +42,7 @@ export const fetchRepositories = (username) => async (dispatch) => {
       if (error.response && error.response.status === 404) {
          dispatch(fetchRepositoriesFailure('User not found.'));
       } else {
-         dispatch(fetchRepositoriesFailure('Failed to fetch repositories.'));
+         dispatch(fetchRepositoriesFailure('No repositories found for this user.'));
       }
    }
 };
