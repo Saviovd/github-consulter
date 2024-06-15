@@ -1,9 +1,17 @@
 import Link from 'next/link';
 import { Repository, RepositoryListStyle, Title } from './RepositoryListStyle';
+import React from 'react';
+import { connect } from 'react-redux';
+import { openModal } from '../../store/actions/modalActions';
 
-const RepositoryList = ({ owner, list }) => {
-   console.log(owner);
-   console.log(list);
+const RepositoryList = ({ owner, list, openModal }) => {
+   const handleRepositoryClick = (repo) => {
+      openModal(repo);
+   };
+   const handleLinkClick = (e) => {
+      e.stopPropagation();
+   };
+
    return (
       <>
          <Title>
@@ -11,7 +19,10 @@ const RepositoryList = ({ owner, list }) => {
          </Title>
          <RepositoryListStyle>
             {list.map((repo) => (
-               <Repository key={repo.id}>
+               <Repository
+                  key={repo.id}
+                  onClick={() => handleRepositoryClick(repo)}
+               >
                   <h3 className='repository-name'>{repo.name}</h3>
                   <span className='owner'>
                      by{' '}
@@ -19,6 +30,7 @@ const RepositoryList = ({ owner, list }) => {
                         href={`https://github.com/${owner.login}`}
                         target='_blank'
                         className='link'
+                        onClick={handleLinkClick}
                      >
                         {owner.login}
                      </Link>
@@ -31,4 +43,4 @@ const RepositoryList = ({ owner, list }) => {
    );
 };
 
-export default RepositoryList;
+export default connect(null, { openModal })(RepositoryList);
