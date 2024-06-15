@@ -11,7 +11,7 @@ import RepositoryList from '@/components/RepositoryList';
 import SortBox from '@/components/SortBox';
 import { GlobalStyle, HomeStyle } from '@/styles/GlobalStyle';
 import { selectSortedRepositories } from '@/store/selectors/repositoriesSelectors';
-import ErrorBox from '@/components/ErrorBox.js';
+import ErrorBox from '@/components/ErrorBox';
 import Modal from '@/components/Modal';
 import Loading from '@/components/Loading';
 
