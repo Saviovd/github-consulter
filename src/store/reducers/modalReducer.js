@@ -1,19 +1,17 @@
-import { OPEN_MODAL, CLOSE_MODAL } from '../actions/modalActions';
-
 const initialState = {
    isOpen: false,
-   repoDetails: null,
+   repoDetails: null, 
 };
 
 const modalReducer = (state = initialState, action) => {
    switch (action.type) {
-      case OPEN_MODAL:
+      case 'OPEN_MODAL':
          return {
             ...state,
             isOpen: true,
-            repoDetails: action.payload,
+            repoDetails: action.payload.repoDetails,
          };
-      case CLOSE_MODAL:
+      case 'CLOSE_MODAL':
          return {
             ...state,
             isOpen: false,
