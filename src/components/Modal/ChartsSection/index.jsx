@@ -1,16 +1,32 @@
 import React from 'react';
 import { Doughnut, Bar } from 'react-chartjs-2';
 import { ChartStyles } from './ChartSectionStyles';
-import { Chart } from 'chart.js';
-import { registerables } from 'chart.js';
 
-Chart.register(...registerables);
-
-const ChartsSection = ({ repoDetails, languages }) => {
-   if (!repoDetails || !languages) return null;
+const ChartsSection = ({
+   repoDetails,
+   languages,
+   commitsCount,
+   issuesCount,
+   pullsCount,
+}) => {
+   if (
+      !repoDetails ||
+      !languages ||
+      commitsCount === null ||
+      issuesCount === null ||
+      pullsCount === null
+   )
+      return null;
 
    const chartData = {
-      labels: ['Stargazers', 'Forks', 'Open Issues'],
+      labels: [
+         'Stargazers',
+         'Forks',
+         'Open Issues',
+         'Commits',
+         'Issues',
+         'Pull Requests',
+      ],
       datasets: [
          {
             label: 'Statistics',
@@ -18,20 +34,23 @@ const ChartsSection = ({ repoDetails, languages }) => {
                repoDetails.stargazers_count,
                repoDetails.forks_count,
                repoDetails.open_issues_count,
+               commitsCount,
+               issuesCount,
+               pullsCount,
             ],
             backgroundColor: [
-               '#3ee235',
+               '#90CC5F',
+               '#fbd479',
                '#054495',
                '#8f29f8',
                '#657c9b',
-               '#9b1118',
             ],
             hoverBackgroundColor: [
-               '#3ee235',
+               '#90CC5F',
+               '#fbd479',
                '#054495',
                '#8f29f8',
                '#657c9b',
-               '#9b1118',
             ],
          },
       ],
@@ -51,44 +70,8 @@ const ChartsSection = ({ repoDetails, languages }) => {
          {
             label: 'Lines of Code',
             data: languageData,
-            backgroundColor: [
-               '#90CC5F',
-               '#fbd479',
-               '#3ee235',
-               '#054495',
-               '#8f29f8',
-               '#657c9b',
-               '#9b1118',
-               '#FF6384',
-               '#36A2EB',
-               '#FFCE56',
-               '#5AD3D1',
-               '#FF8A80',
-               '#B9F6CA',
-               '#FFD180',
-               '#AED581',
-               '#FFD700',
-               '#F0E68C',
-            ],
-            hoverBackgroundColor: [
-               '#90CC5F',
-               '#fbd479',
-               '#3ee235',
-               '#054495',
-               '#8f29f8',
-               '#657c9b',
-               '#9b1118',
-               '#FF6384',
-               '#36A2EB',
-               '#FFCE56',
-               '#5AD3D1',
-               '#FF8A80',
-               '#B9F6CA',
-               '#FFD180',
-               '#AED581',
-               '#FFD700',
-               '#F0E68C',
-            ],
+            backgroundColor: ['#fbd479', '#054495', '#8f29f8', '#657c9b'],
+            hoverBackgroundColor: ['#fbd479', '#054495', '#8f29f8', '#657c9b'],
          },
       ],
    };
