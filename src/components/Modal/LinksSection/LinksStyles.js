@@ -6,6 +6,11 @@ export const LinksStyles = styled.div`
    align-items: center;
    gap: 2.5rem;
    font-weight: 300;
+   h2 {
+      text-align: left;
+      width: auto;
+      margin: 0;
+   }
 
    .link {
       font-size: 2rem;
@@ -35,11 +40,11 @@ export const LinksStyles = styled.div`
       }
    }
    @media screen {
-         @media (max-width: 850px) {
-            gap: 1rem 1.5rem ;
-         }
-         @media (max-width: 640px) {
-            flex-wrap: wrap;
-         }
+      @media (max-width: 850px) {
+         gap: 1rem 1.5rem;
       }
+      @media (max-width: 640px) {
+         flex-wrap: wrap;
+      }
+   }
 `;

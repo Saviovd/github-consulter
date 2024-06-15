@@ -6,6 +6,7 @@ margin-bottom: 2rem;
       margin: 0;
       font-size: 4rem;
       color: rgba(var(--blue));
+      text-align: left;
    }
    .project-description {
       font-size: 1.5rem;
