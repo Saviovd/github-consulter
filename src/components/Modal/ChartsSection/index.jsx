@@ -19,8 +19,20 @@ const ChartsSection = ({ repoDetails, languages }) => {
                repoDetails.forks_count,
                repoDetails.open_issues_count,
             ],
-            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-            hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+            backgroundColor: [
+               '#3ee235',
+               '#054495',
+               '#8f29f8',
+               '#657c9b',
+               '#9b1118',
+            ],
+            hoverBackgroundColor: [
+               '#3ee235',
+               '#054495',
+               '#8f29f8',
+               '#657c9b',
+               '#9b1118',
+            ],
          },
       ],
    };
@@ -40,6 +52,13 @@ const ChartsSection = ({ repoDetails, languages }) => {
             label: 'Lines of Code',
             data: languageData,
             backgroundColor: [
+               '#90CC5F',
+               '#fbd479',
+               '#3ee235',
+               '#054495',
+               '#8f29f8',
+               '#657c9b',
+               '#9b1118',
                '#FF6384',
                '#36A2EB',
                '#FFCE56',
@@ -52,6 +71,13 @@ const ChartsSection = ({ repoDetails, languages }) => {
                '#F0E68C',
             ],
             hoverBackgroundColor: [
+               '#90CC5F',
+               '#fbd479',
+               '#3ee235',
+               '#054495',
+               '#8f29f8',
+               '#657c9b',
+               '#9b1118',
                '#FF6384',
                '#36A2EB',
                '#FFCE56',
@@ -82,10 +108,10 @@ const ChartsSection = ({ repoDetails, languages }) => {
 
    return (
       <ChartStyles>
-         <div className="chart-container">
+         <div className='chart-container'>
             <Doughnut data={chartData} options={chartOptions} />
          </div>
-         <div className="chart-container">
+         <div className='chart-container'>
             <Bar data={languageChartData} options={languageChartOptions} />
          </div>
       </ChartStyles>
