@@ -56,20 +56,16 @@ const Home = ({
 
                <SortBox sortType={sortType} onSortChange={handleSortChange} />
             </div>
-            {loading && !usernameError && <Loading loading={loading} />}
-            {error && (
+            {loading && !usernameError && <Loading loading={loading} size={30} />}
+            {error || repositories.length === 0 &&
+               searchedUsername && (
                <ErrorBox
-                  message={error.message || 'No repositories found for this user.'}
+                  message={'No repositories found for this user.'}
                />
             )}
             {usernameError && (
                <ErrorBox message='Please enter a gitHub username to search.' />
             )}
-            {repositories.length === 0 &&
-               !loading &&
-               !error &&
-               searchedUsername && <p>No repositories found for this user.</p>}
-
             {repositories.length > 0 && (
                <RepositoryList
                   owner={repositories[0]?.owner}
