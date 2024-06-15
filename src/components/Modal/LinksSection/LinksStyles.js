@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const LinksStyles = styled.div`
-   margin-top: 5rem;
+   margin-top: 2rem;
    display: flex;
    gap: 2.5rem;
    font-weight: 300;

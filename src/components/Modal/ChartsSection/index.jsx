@@ -3,7 +3,6 @@ import { Chart as ChartJS, ArcElement, BarElement, CategoryScale, LinearScale, T
 import { Doughnut, Bar } from 'react-chartjs-2';
 import { ChartStyles } from './ChartSectionStyles';
 
-// Register Chart.js components
 ChartJS.register(ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
 const ChartsSection = ({

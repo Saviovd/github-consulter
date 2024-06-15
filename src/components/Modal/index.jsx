@@ -148,8 +148,8 @@ const Modal = ({ isOpen, repoDetails, closeModal }) => {
                {!loadingVisible && languages.length === 0 && (
                   <p>Unable to fetch data. Please try again later.</p>
                )}
-               <ContributorsSection contributors={contributors} />
                <LinksSection repoDetails={repoDetails} />
+               <ContributorsSection contributors={contributors} />
             </ModalContent>
          </motion.div>
       </ModalOverlay>

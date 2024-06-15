@@ -15,6 +15,7 @@ margin-bottom: 2rem;
    }
    .project-main-language {
       font-size: 1.5rem;
+      margin: 0.5rem 0;
 
       span {
          font-size: 1.7rem;
