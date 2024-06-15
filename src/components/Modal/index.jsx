@@ -60,16 +60,19 @@ const Modal = ({ isOpen, repoDetails, closeModal }) => {
             try {
                const commitsResponse = await axios.get(
                   `https://api.github.com/repos/${repoDetails.owner.login}/${repoDetails.name}/stats/commit_activity`,
+                  {timeout: 5000}
                );
                const commitsData = commitsResponse.data;
 
                const issuesResponse = await axios.get(
                   `https://api.github.com/repos/${repoDetails.owner.login}/${repoDetails.name}/issues`,
+                  {timeout: 5000}
                );
                const issuesData = issuesResponse.data;
 
                const pullsResponse = await axios.get(
                   `https://api.github.com/repos/${repoDetails.owner.login}/${repoDetails.name}/pulls`,
+                   {timeout: 5000}
                );
                const pullsData = pullsResponse.data;
 
@@ -129,9 +132,7 @@ const Modal = ({ isOpen, repoDetails, closeModal }) => {
                   Close
                </button>
                <ModalHeader repoDetails={repoDetails} />
-               {repoDetails &&
-                  languages.length > 0 &&
-                  stats.commits !== null && (
+               {stats && repoDetails && languages && (
                      <ChartsSection
                         repoDetails={repoDetails}
                         languages={languages}
