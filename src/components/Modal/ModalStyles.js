@@ -50,14 +50,14 @@ export const ModalContent = styled.div`
       background: none;
       border: none;
       font-size: 16px;
-      position: fixed;
+      position: absolute;
       top: 10px;
       right: 10px;
       cursor: pointer;
    }
 
    @media screen {
-      @media (max-width: 690px) {
+      @media (max-width: 768px) {
          overflow: scroll;
       }
       @media (max-width: 600px) {
