@@ -38,10 +38,10 @@ const ModalHeader = ({ repoDetails }) => {
          )}
          <div className='dates'>
             <p className='project-created'>
-               Created at: <span>{createdDate}</span>
+               Created at: <p>{createdDate}</p>
             </p>
             <p className='project-created'>
-               Last updated at: <span>{updatedDate}</span>
+               Last updated at: <p>{updatedDate}</p>
             </p>
          </div>
       </ModalHeaderStyles>

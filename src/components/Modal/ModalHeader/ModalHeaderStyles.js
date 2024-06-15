@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ModalHeaderStyles = styled.div`
-margin-bottom: 2rem;
+   margin-bottom: 2rem;
    .project-name {
       margin: 0;
       font-size: 4rem;
@@ -34,13 +34,29 @@ margin-bottom: 2rem;
       font-size: 1.5rem;
       margin: 0;
       margin: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
 
-      span {
+      p {
+         margin: 0;
          color: rgba(var(--grey));
          background-color: rgba(var(--grey-2), 0.3);
          padding: 0.5rem;
          border-radius: 6px;
          text-decoration: underline;
+         @media screen {
+            @media (max-width: 540px) {
+               margin-top: 0.5rem;
+            }
+         }
+      }
+      @media screen {
+         @media (max-width: 540px) {
+            flex-direction: column;
+            gap: 0;
+            justify-content: center;
+         }
       }
    }
 `;
