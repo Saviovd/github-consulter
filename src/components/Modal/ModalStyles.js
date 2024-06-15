@@ -42,8 +42,8 @@ export const ModalContent = styled.div`
    max-width: 80%;
    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
    position: relative;
-   min-height: 625px;
-   max-height: 700px;
+   min-height: 66rem;
+   max-height: 70rem;
    .close-button {
       color: rgba(var(--blue));
       text-decoration: underline;

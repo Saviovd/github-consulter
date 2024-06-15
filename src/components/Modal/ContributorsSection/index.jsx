@@ -4,6 +4,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const ContributorsSection = ({ contributors }) => {
+   if (!contributors || contributors.length === 0) {
+      return <p>No contributors found.</p>;
+   }
    return (
       <ContributorsStyles>
          <p>Contributors:</p>

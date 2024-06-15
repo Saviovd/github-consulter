@@ -64,7 +64,7 @@ export const HomeStyle = styled.main`
       }
    }
 
-   h2 {
+   .null-list {
       color: rgba(var(--light), .5);
       width: 100%;
       margin: 1rem auto;
@@ -85,10 +85,12 @@ export const Assign = styled.div`
    right: 2rem;
    bottom: 1rem;
    background-color: rgba(var(--grey), 0.1);
+   border-radius: 6px;
 
    p {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 2rem;
+      padding: 0.5rem;
 
       .portfolio {
          color: rgb(var(--blue));

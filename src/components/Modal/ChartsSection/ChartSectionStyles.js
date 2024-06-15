@@ -22,6 +22,9 @@ export const ChartStyles = styled.div`
          @media (max-width: 885px) {
             min-width: 40%;
          }
+         @media (max-width: 430px) {
+            min-width: 280px;
+         }
       }
    }
 

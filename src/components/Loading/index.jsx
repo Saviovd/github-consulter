@@ -12,8 +12,6 @@ const LoadingStyle = styled.div`
    margin: 1rem auto;
    display: flex;
    justify-content: center;
-   position: absolute;
-   left: 1rem;
 `;
 
 export default Loading;

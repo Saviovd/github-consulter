@@ -1,20 +1,20 @@
 'use client';
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { connect } from 'react-redux';
 import {
    fetchRepositoriesRequest,
    setSortType,
    clearError,
 } from '@/store/actions/RepositoriesActions';
+import { selectSortedRepositories } from '@/store/selectors/repositoriesSelectors';
 import Search from '@/components/Search';
 import RepositoryList from '@/components/RepositoryList';
 import SortBox from '@/components/SortBox';
-import { GlobalStyle, HomeStyle, Assign } from '@/styles/GlobalStyle';
-import { selectSortedRepositories } from '@/store/selectors/repositoriesSelectors';
-import ErrorBox from '@/components/ErrorBox';
 import Modal from '@/components/Modal';
+import ErrorBox from '@/components/ErrorBox';
 import Loading from '@/components/Loading';
-import Link from 'next/link';
+import { GlobalStyle, HomeStyle, Assign } from '@/styles/GlobalStyle';
 
 const Home = ({
    repositories,
@@ -28,7 +28,7 @@ const Home = ({
    const [searchedUsername, setSearchedUsername] = useState('');
    const [usernameError, setUsernameError] = useState(false);
 
-   const handleSearch = (username) => {
+   const handleSearchByUsername = (username) => {
       clearError();
 
       if (!username.trim()) {
@@ -53,7 +53,7 @@ const Home = ({
          <GlobalStyle />
          <HomeStyle>
             <div className='top-bar'>
-               <Search onSearch={handleSearch} />
+               <Search onSearch={handleSearchByUsername} />
 
                <SortBox sortType={sortType} onSortChange={handleSortChange} />
             </div>
@@ -73,7 +73,7 @@ const Home = ({
                   list={repositories}
                />
             ) : (
-               <h2>Enter your username to view your repositories</h2>
+               <h2 className='null-list'>Enter your username to view your repositories</h2>
             )}
             <Modal />
             <Assign>

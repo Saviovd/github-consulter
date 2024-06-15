@@ -2,9 +2,11 @@ import styled from 'styled-components';
 
 export const ContributorsStyles = styled.div`
    font-size: 1.8rem;
+
    p {
       margin: 1rem 0;
    }
+
    .contributor-list {
       display: flex;
       flex-wrap: wrap;
@@ -12,8 +14,6 @@ export const ContributorsStyles = styled.div`
       gap: 2rem;
       margin: 0;
       padding: 0;
-      li {
-      }
    }
 
    .contributor {
@@ -40,6 +40,7 @@ export const ContributorsStyles = styled.div`
             content: '@';
          }
       }
+
       &:hover {
          color: rgba(var(--blue));
          border: 1px solid rgba(var(--blue));

@@ -3,6 +3,9 @@ import { LinksStyles } from './LinksStyles';
 import Link from 'next/link';
 
 const LinksSection = ({ repoDetails }) => {
+   if (!repoDetails) {
+      return <p>No links available.</p>;
+   }
    return (
       <LinksStyles>
       <h2>Links: </h2>

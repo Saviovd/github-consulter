@@ -6,6 +6,7 @@ export const LinksStyles = styled.div`
    align-items: center;
    gap: 2.5rem;
    font-weight: 300;
+
    h2 {
       text-align: left;
       width: auto;
@@ -39,6 +40,7 @@ export const LinksStyles = styled.div`
          }
       }
    }
+
    @media screen {
       @media (max-width: 850px) {
          gap: 1rem 1.5rem;

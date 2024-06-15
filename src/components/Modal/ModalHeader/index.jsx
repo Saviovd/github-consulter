@@ -1,24 +1,20 @@
 import React from 'react';
 import { ModalHeaderStyles } from './ModalHeaderStyles';
 
-const formatWithLeadingZero = (number) => {
-   return number.toLocaleString('en-US', {
-      minimumIntegerDigits: 2,
-      useGrouping: false,
-   });
-};
-
-const formatDate = (dateString) => {
-   const date = new Date(dateString);
-   const day = formatWithLeadingZero(date.getDate());
-   const month = formatWithLeadingZero(date.getMonth() + 1);
-   const year = date.getFullYear();
-
-   return `${day}/${month}/${year}`;
-};
 const ModalHeader = ({ repoDetails }) => {
+   const formatDate = (dateString) => {
+      const date = new Date(dateString);
+      const formattedDate = date.toLocaleDateString('en-US', {
+         day: '2-digit',
+         month: '2-digit',
+         year: 'numeric',
+      });
+      return formattedDate;
+   };
+
    const createdDate = formatDate(repoDetails.created_at);
    const updatedDate = formatDate(repoDetails.updated_at);
+
    return (
       <ModalHeaderStyles>
          <h2 className='project-name'>
@@ -32,17 +28,19 @@ const ModalHeader = ({ repoDetails }) => {
             <span>{repoDetails.language || 'Not specified'}</span>
          </p>
          {repoDetails.license && (
-            <p className='project-main-language'>
+            <p className='project-license'>
                License: {repoDetails.license.name}
             </p>
          )}
          <div className='dates'>
-            <p className='project-created'>
-               Created at: <p>{createdDate}</p>
-            </p>
-            <p className='project-created'>
-               Last updated at: <p>{updatedDate}</p>
-            </p>
+            <div className='project-created'>
+               Created at:{' '}
+               <span>{createdDate}</span>
+            </div>
+            <div className='project-updated'>
+               Last updated at:{' '}
+               <span>{updatedDate}</span>
+            </div>
          </div>
       </ModalHeaderStyles>
    );
