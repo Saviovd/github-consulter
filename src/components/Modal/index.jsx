@@ -60,19 +60,19 @@ const Modal = ({ isOpen, repoDetails, closeModal }) => {
             try {
                const commitsResponse = await axios.get(
                   `https://api.github.com/repos/${repoDetails.owner.login}/${repoDetails.name}/stats/commit_activity`,
-                  {timeout: 5000}
+                  { timeout: 5000 }
                );
                const commitsData = commitsResponse.data;
 
                const issuesResponse = await axios.get(
                   `https://api.github.com/repos/${repoDetails.owner.login}/${repoDetails.name}/issues`,
-                  {timeout: 5000}
+                  { timeout: 5000 }
                );
                const issuesData = issuesResponse.data;
 
                const pullsResponse = await axios.get(
                   `https://api.github.com/repos/${repoDetails.owner.login}/${repoDetails.name}/pulls`,
-                   {timeout: 5000}
+                  { timeout: 5000 }
                );
                const pullsData = pullsResponse.data;
 
@@ -132,7 +132,8 @@ const Modal = ({ isOpen, repoDetails, closeModal }) => {
                   Close
                </button>
                <ModalHeader repoDetails={repoDetails} />
-               {stats && repoDetails && languages && (
+               <div className='charts'>
+                  {stats && repoDetails && languages && (
                      <ChartsSection
                         repoDetails={repoDetails}
                         languages={languages}
@@ -141,6 +142,8 @@ const Modal = ({ isOpen, repoDetails, closeModal }) => {
                         pullsCount={stats.pullRequests}
                      />
                   )}
+                  <ContributorsSection contributors={contributors} />
+               </div>
                {loadingVisible &&
                   (!repoDetails ||
                      languages.length === 0 ||
@@ -149,7 +152,6 @@ const Modal = ({ isOpen, repoDetails, closeModal }) => {
                   <p>Unable to fetch data. Please try again later.</p>
                )}
                <LinksSection repoDetails={repoDetails} />
-               <ContributorsSection contributors={contributors} />
             </ModalContent>
          </motion.div>
       </ModalOverlay>

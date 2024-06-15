@@ -61,7 +61,7 @@ const ChartsSection = ({
 
    const chartOptions = {
       responsive: true,
-      maintainAspectRatio: false,
+      maintainAspectRatio: true,
    };
 
    const languageLabels = Object.keys(languages);

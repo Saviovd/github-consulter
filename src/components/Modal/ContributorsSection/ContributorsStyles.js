@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 export const ContributorsStyles = styled.div`
    font-size: 1.8rem;
-   margin: 3rem auto 0;
    p {
       margin: 1rem 0;
    }
    .contributor-list {
       display: flex;
+      flex-wrap: wrap;
       list-style-type: none;
       gap: 2rem;
       margin: 0;

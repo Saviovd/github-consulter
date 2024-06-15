@@ -13,6 +13,15 @@ export const ModalOverlay = styled.div`
       align-items: center;
       z-index: 1000;
       color: rgb(var(--light));
+      min-height: 725px;
+
+      .charts {
+         display: flex;
+         flex-wrap: wrap;
+         align-items: flex-start;
+         justify-content: flex-start;
+         gap: 3rem;
+      }
    }
 `;
 
@@ -26,6 +35,8 @@ export const ModalContent = styled.div`
    max-width: 80%;
    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
    position: relative;
+   min-height: 625px;
+   max-height: 700px;
    .close-button {
       color: rgba(var(--blue));
       text-decoration: underline;
