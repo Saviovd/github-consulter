@@ -24,10 +24,10 @@ const ChartsSection = ({
    const chartData = {
       labels: [
          'Stargazers',
+         'Issues',
+         'Commits',
          'Forks',
          'Open Issues',
-         'Commits',
-         'Issues',
          'Pull Requests',
       ],
       datasets: [

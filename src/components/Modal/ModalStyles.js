@@ -21,6 +21,13 @@ export const ModalOverlay = styled.div`
          align-items: flex-start;
          justify-content: flex-start;
          gap: 3rem;
+
+         @media screen {
+            @media (max-width: 1100px) {
+               flex-direction: column;
+               gap: 1rem;
+            }
+         }
       }
    }
 `;
@@ -43,13 +50,16 @@ export const ModalContent = styled.div`
       background: none;
       border: none;
       font-size: 16px;
-      position: absolute;
+      position: fixed;
       top: 10px;
       right: 10px;
       cursor: pointer;
    }
 
    @media screen {
+      @media (max-width: 690px) {
+         overflow: scroll;
+      }
       @media (max-width: 600px) {
          min-height: 500px;
       }

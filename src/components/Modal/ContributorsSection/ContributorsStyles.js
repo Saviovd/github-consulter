@@ -11,6 +11,7 @@ export const ContributorsStyles = styled.div`
       list-style-type: none;
       gap: 2rem;
       margin: 0;
+      padding: 0;
       li {
       }
    }
