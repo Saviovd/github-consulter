@@ -32,6 +32,9 @@ export const RepositoryListStyle = styled.ul`
       @media (max-width: 600px) {
          min-height: 370px;
       }
+      @media (max-width: 430px) {
+         padding: 0 2rem;
+      }
    }
 `;
 

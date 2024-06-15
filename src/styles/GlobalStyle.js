@@ -77,6 +77,7 @@ export const Assign = styled.div`
    position: absolute;
    right: 2rem;
    bottom: 1rem;
+
    p {
       margin: 0;
       font-size: 2.5rem;
@@ -84,6 +85,14 @@ export const Assign = styled.div`
       .portfolio {
          color: rgb(var(--blue));
          text-decoration: none;
+      }
+   }
+
+   @media screen {
+      @media (max-width: 430px) {
+         width: 30rem;
+         text-align: center;
+         right: calc(50% - 15rem);
       }
    }
 `;
