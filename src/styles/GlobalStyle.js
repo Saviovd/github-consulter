@@ -28,6 +28,12 @@ export const GlobalStyle = createGlobalStyle`
          justify-content: center;
          align-items: center;
          overflow: hidden;
+         @media screen {
+         @media (max-width: 600px) {
+            overflow: auto;
+            min-height: 620px;
+         }
+      }
       }
    }
 
@@ -40,14 +46,31 @@ export const HomeStyle = styled.main`
    border-radius: 0.6rem;
    border: 1px solid rgba(var(--grey-2));
    position: relative;
+   min-height: 675px;
 
    .top-bar {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       border-bottom: 1px solid rgba(var(--grey-2));
       border-radius: 0.6rem 0.6rem 0 0;
       background-color: rgba(var(--grey), 0.1);
       padding: 3rem;
+      @media screen {
+         @media (max-width: 600px) {
+            padding: 1.5rem 1rem;
+            height: 5rem;
+         }
+      }
+   }
+   @media screen {
+      @media (max-width: 600px) {
+         min-height: 580px;
+      }
+      @media (max-width: 430px) {
+         width: 95%;
+         height: 92vh;
+      }
    }
 `;
 export const Assign = styled.div`

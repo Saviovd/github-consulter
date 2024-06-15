@@ -21,10 +21,17 @@ export const SearchBarStyles = styled.form`
       background-color: transparent;
       border: 0;
       color: rgba(var(--grey));
+      width: 100%;
 
       &:focus {
          outline: none;
          caret-color: var(--grey);
+      }
+   }
+
+   @media screen {
+      @media (max-width: 530px) {
+         width: 20rem;
       }
    }
 `;

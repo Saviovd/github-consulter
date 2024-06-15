@@ -7,7 +7,9 @@ export const RepositoryListStyle = styled.ul`
    flex-direction: column;
    gap: 1rem;
    overflow-y: auto;
-   max-height: 80%;
+   height: 80%;
+   max-height: 60vh;
+   min-height: 450px;
 
    &::-webkit-scrollbar {
       width: 4px;
@@ -24,6 +26,12 @@ export const RepositoryListStyle = styled.ul`
    &::-webkit-scrollbar-thumb:vertical {
       background-color: #666;
       -webkit-border-radius: 6px;
+   }
+
+   @media screen {
+      @media (max-width: 600px) {
+         min-height: 370px;
+      }
    }
 `;
 

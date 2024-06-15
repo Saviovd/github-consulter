@@ -9,6 +9,7 @@ export const SortBoxStyle = styled.label`
    font-size: 1.4rem;
    padding: 0 0.2rem;
    color: rgba(var(--grey));
+   padding: .5rem;
 
    .select {
       background-color: transparent;
@@ -25,10 +26,23 @@ export const SortBoxStyle = styled.label`
          &:hover {
             background-color: rgba(var(--grey));
          }
+         position: absolute;
+         right: 0;
       }
       &:focus {
          outline: none;
          caret-color: var(--grey);
+      }
+      @media screen {
+      @media (max-width: 420px) {
+         width: 2rem;
+      }
+   }
+   }
+
+   @media screen {
+      @media (max-width: 420px) {
+         font-size: 1.2rem;
       }
    }
 `;
