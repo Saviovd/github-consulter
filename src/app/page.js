@@ -58,7 +58,7 @@ const Home = ({
             </div>
             {loading && !usernameError && <Loading loading={loading} size={30} />}
             {error || repositories.length === 0 &&
-               searchedUsername && (
+               searchedUsername && !loading && (
                <ErrorBox
                   message={'No repositories found for this user.'}
                />
