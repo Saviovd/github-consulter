@@ -13,6 +13,7 @@ import { GlobalStyle, HomeStyle } from '@/styles/GlobalStyle';
 import { selectSortedRepositories } from '@/store/selectors/repositoriesSelectors';
 import ErrorBox from '@/components/ErrorBox.js';
 import Modal from '@/components/Modal';
+import Loading from '@/components/Loading';
 
 const Home = ({
    repositories,
@@ -55,7 +56,7 @@ const Home = ({
 
                <SortBox sortType={sortType} onSortChange={handleSortChange} />
             </div>
-
+            {loading && !usernameError && <Loading loading={loading} />}
             {error && (
                <ErrorBox
                   message={error.message || 'Failed to fetch repositories.'}
@@ -64,7 +65,6 @@ const Home = ({
             {usernameError && (
                <ErrorBox message='Please enter a gitHub username to search.' />
             )}
-            {loading && !usernameError && <p>Loading...</p>}
             {repositories.length === 0 &&
                !loading &&
                !error &&
