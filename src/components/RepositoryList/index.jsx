@@ -1,13 +1,17 @@
+import Link from 'next/link';
 import { Repository, RepositoryListStyle, Title } from './RepositoryListStyle';
 import React from 'react';
 import { connect } from 'react-redux';
 import { openModal } from '../../store/actions/modalActions';
 import { motion } from 'framer-motion';
-import ThumbnailProfile from '../ThumbnailProfile';
 
 const RepositoryList = ({ owner, list, openModal }) => {
    const handleRepositoryClick = (repo) => {
       openModal(repo);
+   };
+
+   const handleLinkClick = (e) => {
+      e.stopPropagation();
    };
 
    const containerVariants = {
@@ -32,8 +36,8 @@ const RepositoryList = ({ owner, list, openModal }) => {
          </Title>
          <RepositoryListStyle
             as={motion.div}
-            initial='hidden'
-            animate='visible'
+            initial="hidden"
+            animate="visible"
             variants={containerVariants}
          >
             {list.map((repo) => (
@@ -44,17 +48,19 @@ const RepositoryList = ({ owner, list, openModal }) => {
                   variants={itemVariants}
                >
                   <h3 className='repository-name'>{repo.name}</h3>
-                  <p className='owner'>
+                  <span className='owner'>
                      by{' '}
-                     <ThumbnailProfile
-                        avatar_url={owner.avatar_url}
-                        login={owner.login}
-                     />
-                  </p>
+                     <Link
+                        href={`https://github.com/${owner.login}`}
+                        target='_blank'
+                        className='link'
+                        onClick={handleLinkClick}
+                     >
+                        {owner.login}
+                     </Link>
+                  </span>
                   <p className='repository-description'>
-                     {repo.description
-                        ? repo.description
-                        : 'The repository has no description'}
+                     {repo.description ? repo.description : 'The repository has no description'}
                   </p>
                </Repository>
             ))}

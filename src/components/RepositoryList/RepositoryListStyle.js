@@ -67,11 +67,19 @@ export const Repository = styled.div`
       border-radius: 0.6rem;
    }
    .owner {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       margin: 0;
       display: flex;
       align-items: center;
-      text-decoration: none;
       font-style: italic;
+
+      .link {
+         font-weight: 600;
+         font-size: 2rem;
+         color: rgba(var(--blue), 1);
+         margin-left: 0.5rem;
+         font-style: normal;
+         text-decoration: none;
+      }
    }
 `;
