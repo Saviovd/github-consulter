@@ -6,18 +6,22 @@ const Search = ({ onSearch }) => {
 
    const handleSubmit = (event) => {
       event.preventDefault();
+      if (event.key !== 'Enter') {
+         return;
+      }
       onSearch(username);
    };
 
    return (
       <>
-         <SearchBarStyles onSubmit={handleSubmit}>
+         <SearchBarStyles>
             <input
                type='text'
                value={username}
                onChange={(e) => setUsername(e.target.value)}
                placeholder='Type GitHub username'
                className='input-text'
+               onKeyUp={handleSubmit}
             />
             <svg
                aria-hidden='true'

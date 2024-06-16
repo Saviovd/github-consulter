@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SearchBarStyles = styled.form`
+export const SearchBarStyles = styled.div`
    background-color: rgba(var(--dark), 0.5);
    border: 1px solid rgba(var(--grey-2));
    padding: 0.2rem;
