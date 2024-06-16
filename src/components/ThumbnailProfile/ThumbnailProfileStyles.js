@@ -6,7 +6,7 @@ export const ProfileStyles = styled.div`
    display: flex;
    gap: 0.5rem;
    min-width: 5rem;
-   padding: 0.5rem 1rem;
+   padding: 0.3rem 1rem;
    border-radius: 0.8em;
    display: flex;
    align-items: center;

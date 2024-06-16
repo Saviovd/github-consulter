@@ -16,8 +16,8 @@ const ThumbnailProfile = ({ login, avatar_url }) => {
          >
             <ProfileStyles>
                <Image
-                  width={25}
-                  height={25}
+                  width={22}
+                  height={22}
                   quality={100}
                   alt={`profile photo of ${login}`}
                   src={avatar_url}

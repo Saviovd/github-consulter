@@ -2,9 +2,12 @@ import styled from 'styled-components';
 
 export const ContributorsStyles = styled.div`
    font-size: 1.8rem;
-display: flex;
+   display: flex;
+   align-items: center;
+   margin-bottom: 1rem;
    p {
-      margin: 1rem 0;
+      margin: 0;
+      font-size: 2rem;
    }
 
    .contributor-list {

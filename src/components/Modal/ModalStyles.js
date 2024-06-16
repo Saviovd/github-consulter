@@ -43,7 +43,7 @@ export const ModalContent = styled.div`
    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
    position: relative;
    min-height: 55rem;
-   max-height: 60rem;
+   max-height: 55rem;
    .close-button {
       background: none;
       border: none;

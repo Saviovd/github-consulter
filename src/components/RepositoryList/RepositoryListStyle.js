@@ -9,7 +9,7 @@ export const RepositoryListStyle = styled.ul`
    overflow-y: auto;
    height: 80%;
    max-height: 60vh;
-   min-height: 380px;
+   min-height: 44rem;
 
    &::-webkit-scrollbar {
       width: 4px;
@@ -30,7 +30,7 @@ export const RepositoryListStyle = styled.ul`
 
    @media screen {
       @media (max-width: 600px) {
-         min-height: 370px;
+         min-height: 41rem;
       }
       @media (max-width: 710px) {
          padding: 0 2rem;
