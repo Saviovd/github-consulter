@@ -54,6 +54,12 @@ export const ModalContent = styled.div`
       svg {
          fill: rgba(var(--blue));
       }
+      @media screen {
+         @media (max-width: 430px) {
+            right: 0rem;
+            top: .5rem;
+         }
+      }
    }
 
    .message {
