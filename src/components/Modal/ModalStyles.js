@@ -39,7 +39,7 @@ export const ModalContent = styled.div`
    border-radius: 6px;
    width: 80%;
    height: 70%;
-   max-width: 80%;
+   max-width: 80rem;
    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
    position: relative;
    min-height: 55rem;
@@ -64,7 +64,7 @@ export const ModalContent = styled.div`
    }
 
    @media screen {
-      @media (max-width: 1190px) {
+      @media (max-width: 800px) {
          overflow: scroll;
       }
       @media (max-width: 600px) {

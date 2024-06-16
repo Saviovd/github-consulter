@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ContributorsStyles } from './ContributorsStyles';
-import Link from 'next/link';
-import Image from 'next/image';
 import ThumbnailProfile from '@/components/ThumbnailProfile';
+import Loading from '@/components/Loading';
 
 const ContributorsSection = ({ contributors }) => {
+   const [isLoading, setIsLoading] = useState(true);
+   useEffect(() => {
+      const timer = setTimeout(() => {
+         setIsLoading(false);
+      }, 1500);
+
+      return () => clearTimeout(timer);
+   }, []);
+   if (isLoading) {
+      return <Loading size={10} />;
+   }
    if (!contributors || contributors.length === 0) {
       return (
          <p className='message'>

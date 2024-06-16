@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
    Chart as ChartJS,
    ArcElement,
@@ -10,6 +10,7 @@ import {
 } from 'chart.js';
 import { Doughnut, Bar } from 'react-chartjs-2';
 import { ChartStyles } from './ChartSectionStyles';
+import Loading from '@/components/Loading';
 
 ChartJS.register(
    ArcElement,
@@ -27,6 +28,17 @@ const ChartsSection = ({
    issuesCount,
    pullsCount,
 }) => {
+   const [isLoading, setIsLoading] = useState(true);
+   useEffect(() => {
+      const timer = setTimeout(() => {
+         setIsLoading(false);
+      }, 1500);
+
+      return () => clearTimeout(timer);
+   }, []);
+   if (isLoading) {
+      return <Loading size={30} />;
+   }
    if (
       !repoDetails ||
       !languages ||
