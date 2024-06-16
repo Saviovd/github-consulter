@@ -32,7 +32,8 @@ export const GlobalStyle = createGlobalStyle`
          min-height: 70rem;
          @media screen {
             @media (max-width: 600px) {
-               overflow: auto;
+               overflow-y: auto;
+               overflow-x: hidden;
             }
          }
       }
