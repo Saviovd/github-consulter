@@ -9,11 +9,11 @@ const outfit = Outfit({
 
 function AppLayout({ children }) {
    return (
-      <Providers>
-         <html lang='pt-BR' className={outfit.className}>
-            <body>{children}</body>
-         </html>
-      </Providers>
+      <html lang='pt-BR' className={outfit.className}>
+         <body>
+            <Providers>{children}</Providers>
+         </body>
+      </html>
    );
 }
 

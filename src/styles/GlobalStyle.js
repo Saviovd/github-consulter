@@ -20,6 +20,7 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 10px;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       body {
          background-color: rgba(var(--dark));
          color: rgba(var(--light));
