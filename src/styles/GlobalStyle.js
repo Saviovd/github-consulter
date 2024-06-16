@@ -35,6 +35,7 @@ export const GlobalStyle = createGlobalStyle`
             @media (max-width: 600px) {
                overflow-y: auto;
                overflow-x: hidden;
+               min-height: 65rem;
             }
          }
       }
@@ -76,6 +77,9 @@ export const HomeStyle = styled.main`
    @media screen {
       @media (max-width: 710px) {
          width: 95%;
+      }
+      @media (max-width: 600px) {
+         min-height: 55rem;
       }
       @media (max-width: 430px) {
          width: 95%;

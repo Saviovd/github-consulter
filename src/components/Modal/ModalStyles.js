@@ -13,7 +13,7 @@ export const ModalOverlay = styled.div`
       align-items: center;
       z-index: 1000;
       color: rgb(var(--light));
-      min-height: 725px;
+      min-height: 72.5rem;
 
       .charts {
          display: flex;
@@ -27,6 +27,13 @@ export const ModalOverlay = styled.div`
                flex-direction: column;
                gap: 1rem;
             }
+         }
+      }
+      @media screen {
+         @media (max-width: 600px) {
+            overflow-y: auto;
+            overflow-x: hidden;
+            min-height: 62rem;
          }
       }
    }
@@ -57,7 +64,7 @@ export const ModalContent = styled.div`
       @media screen {
          @media (max-width: 430px) {
             right: 0rem;
-            top: .5rem;
+            top: 0.5rem;
          }
       }
    }
