@@ -57,9 +57,6 @@ const Home = ({
 
                <SortBox sortType={sortType} onSortChange={handleSortChange} />
             </div>
-            {loading && !usernameError && (
-               <Loading loading={loading} size={30} />
-            )}
             {error ||
                (repositories.length === 0 && searchedUsername && !loading && (
                   <ErrorBox message={'No repositories found for this user.'} />
@@ -73,7 +70,12 @@ const Home = ({
                   list={repositories}
                />
             ) : (
-               <h2 className='null-list'>Enter your username to view your repositories</h2>
+               <h2 className='null-list'>
+                  Enter your username to view your repositories
+               </h2>
+            )}
+            {loading && !usernameError && (
+               <Loading loading={loading} size={30} />
             )}
             <Modal />
             <Assign>
