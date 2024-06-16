@@ -35,7 +35,7 @@ export const GlobalStyle = createGlobalStyle`
             @media (max-width: 600px) {
                overflow-y: auto;
                overflow-x: hidden;
-               min-height: 65rem;
+               min-height: 60rem;
             }
          }
       }
