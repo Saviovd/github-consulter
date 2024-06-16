@@ -11,6 +11,7 @@ const StyledErrorBox = styled(motion.div)`
       color: rgba(255, 0, 0, 0.8);
       font-weight: lighter;
       font-size: 1.5rem;
+      margin: 0;
    }
 `;
 
