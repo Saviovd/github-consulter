@@ -5,9 +5,17 @@ export const ModalHeaderStyles = styled.div`
 
    .project-name {
       margin: 0;
-      font-size: 4rem;
+      font-size: 2.5rem;
       color: rgba(var(--blue));
       text-align: left;
+
+      @media screen {
+         @media (max-width: 430px) {
+            font-size: 2.3rem;
+            white-space: pre-wrap;
+            margin-top: 1.5rem;
+         }
+      }
    }
 
    .project-description {

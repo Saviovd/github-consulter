@@ -71,7 +71,7 @@ export const ModalContent = styled.div`
 
    @media screen {
       @media (max-width: 800px) {
-         overflow: scroll;
+         overflow-y: scroll;
       }
       @media (max-width: 600px) {
          min-height: 500px;
