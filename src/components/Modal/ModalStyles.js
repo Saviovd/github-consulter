@@ -42,29 +42,29 @@ export const ModalContent = styled.div`
    max-width: 80%;
    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
    position: relative;
-   min-height: 66rem;
-   max-height: 70rem;
+   min-height: 55rem;
+   max-height: 60rem;
    .close-button {
-      color: rgba(var(--blue));
-      text-decoration: underline;
       background: none;
       border: none;
-      font-size: 16px;
       position: absolute;
       top: 10px;
-      right: 10px;
+      right: 0.5rem;
       cursor: pointer;
+      svg {
+         fill: rgba(var(--blue));
+      }
    }
 
    .message {
       font-size: 1.5rem;
-      color: #8D0E26;
-      margin: 0;
+      color: #8d0e26;
+      margin: 1rem 0;
       width: 100%;
    }
 
    @media screen {
-      @media (max-width: 768px) {
+      @media (max-width: 1190px) {
          overflow: scroll;
       }
       @media (max-width: 600px) {

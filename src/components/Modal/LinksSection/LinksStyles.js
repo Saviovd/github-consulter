@@ -4,8 +4,11 @@ export const LinksStyles = styled.div`
    margin-top: 2rem;
    display: flex;
    align-items: center;
-   gap: 2.5rem;
+   gap: 1.5rem;
    font-weight: 300;
+   font-size: 1.5rem;
+   font-weight: 300;
+   flex-wrap: wrap;
 
    h2 {
       text-align: left;
@@ -14,7 +17,7 @@ export const LinksStyles = styled.div`
    }
 
    .link {
-      font-size: 2rem;
+      font-size: 1.8rem;
       color: inherit;
       text-decoration: none;
       background-color: rgba(var(--grey));
@@ -44,9 +47,6 @@ export const LinksStyles = styled.div`
    @media screen {
       @media (max-width: 850px) {
          gap: 1rem 1.5rem;
-      }
-      @media (max-width: 640px) {
-         flex-wrap: wrap;
       }
    }
 `;

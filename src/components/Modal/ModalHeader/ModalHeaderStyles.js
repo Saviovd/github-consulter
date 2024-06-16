@@ -37,9 +37,9 @@ export const ModalHeaderStyles = styled.div`
    .dates {
       display: flex;
       gap: 3rem;
-
-      @media screen and (max-width: 540px) {
-         flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+      @media screen and (max-width: 480px) {
          gap: 1rem;
       }
    }
@@ -61,14 +61,14 @@ export const ModalHeaderStyles = styled.div`
       }
 
       @media screen and (max-width: 540px) {
-         gap: .5rem;
+         gap: 0.5rem;
          justify-content: flex-start;
          align-items: flex-start;
          text-align: left;
       }
 
       @media screen and (max-width: 540px) {
-         gap: .5rem;
+         gap: 0.5rem;
          justify-content: flex-start;
          align-items: center;
          text-align: left;

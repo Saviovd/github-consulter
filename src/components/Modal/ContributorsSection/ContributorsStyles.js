@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const ContributorsStyles = styled.div`
    font-size: 1.8rem;
-
+display: flex;
    p {
       margin: 1rem 0;
    }
@@ -11,7 +11,7 @@ export const ContributorsStyles = styled.div`
       display: flex;
       flex-wrap: wrap;
       list-style-type: none;
-      gap: 2rem;
+      gap: 1rem;
       margin: 0;
       padding: 0;
    }

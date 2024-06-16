@@ -9,7 +9,7 @@ export const RepositoryListStyle = styled.ul`
    overflow-y: auto;
    height: 80%;
    max-height: 60vh;
-   min-height: 450px;
+   min-height: 380px;
 
    &::-webkit-scrollbar {
       width: 4px;
@@ -32,7 +32,7 @@ export const RepositoryListStyle = styled.ul`
       @media (max-width: 600px) {
          min-height: 370px;
       }
-      @media (max-width: 430px) {
+      @media (max-width: 710px) {
          padding: 0 2rem;
       }
    }
@@ -67,17 +67,11 @@ export const Repository = styled.div`
       border-radius: 0.6rem;
    }
    .owner {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       margin: 0;
       display: flex;
       align-items: center;
-
-      .link {
-         color: inherit;
-         font-weight: 600;
-         font-size: 1.8rem;
-         color: rgba(var(--blue), 1);
-         margin-left: 0.5rem;
-      }
+      text-decoration: none;
+      font-style: italic;
    }
 `;

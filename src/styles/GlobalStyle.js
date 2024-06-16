@@ -29,12 +29,12 @@ export const GlobalStyle = createGlobalStyle`
          justify-content: center;
          align-items: center;
          overflow: hidden;
+         min-height: 620px;
          @media screen {
-         @media (max-width: 600px) {
-            overflow: auto;
-            min-height: 620px;
+            @media (max-width: 600px) {
+               overflow: auto;
+            }
          }
-      }
       }
    }
 
@@ -47,7 +47,7 @@ export const HomeStyle = styled.main`
    border-radius: 0.6rem;
    border: 1px solid rgba(var(--grey-2));
    position: relative;
-   min-height: 675px;
+   min-height: 60rem;
 
    .top-bar {
       display: flex;
@@ -66,14 +66,17 @@ export const HomeStyle = styled.main`
    }
 
    .null-list {
-      color: rgba(var(--light), .5);
+      color: rgba(var(--light), 0.5);
       width: 100%;
       margin: 1rem auto;
       text-align: center;
    }
    @media screen {
+      @media (max-width: 710px) {
+         width: 95%;
+      }
       @media (max-width: 600px) {
-         min-height: 580px;
+         /* min-height: 580px; */
       }
       @media (max-width: 430px) {
          width: 95%;

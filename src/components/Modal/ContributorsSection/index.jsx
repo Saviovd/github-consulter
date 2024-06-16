@@ -2,6 +2,7 @@ import React from 'react';
 import { ContributorsStyles } from './ContributorsStyles';
 import Link from 'next/link';
 import Image from 'next/image';
+import ThumbnailProfile from '@/components/ThumbnailProfile';
 
 const ContributorsSection = ({ contributors }) => {
    if (!contributors || contributors.length === 0) {
@@ -14,26 +15,14 @@ const ContributorsSection = ({ contributors }) => {
    }
    return (
       <ContributorsStyles>
-         <p>Contributors:</p>
+         <p>Devs:</p>
          <ul className='contributor-list'>
             {contributors.map((contributor) => (
                <li key={contributor.id}>
-                  <Link
-                     href={contributor.html_url}
-                     target='_blank'
-                     rel='noopener noreferrer'
-                     className='contributor'
-                  >
-                     <Image
-                        src={contributor.avatar_url}
-                        height={60}
-                        width={60}
-                        alt={`Profile photo of ${contributor.login}`}
-                        quality={100}
-                        className='image'
-                     />
-                     <p>{contributor.login}</p>
-                  </Link>
+                  <ThumbnailProfile
+                     avatar_url={contributor.avatar_url}
+                     login={contributor.login}
+                  />
                </li>
             ))}
          </ul>
