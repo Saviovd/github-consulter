@@ -115,12 +115,25 @@ const ChartsSection = ({
 
    return (
       <ChartStyles>
-         <div className='chart-container'>
-            <Doughnut data={chartData} options={chartOptions} />
-         </div>
-         <div className='chart-container'>
-            <Bar data={languageChartData} options={languageChartOptions} />
-         </div>
+         {repoDetails.stargazers_count !== 0 &&
+         repoDetails.forks_count !== 0 &&
+         repoDetails.open_issues_count !== 0 &&
+         commitsCount !== 0 &&
+         issuesCount !== 0 &&
+         pullsCount !== 0 ? (
+            <div className='chart-container'>
+               <Doughnut data={chartData} options={chartOptions} />
+            </div>
+         ) : (
+            ''
+         )}
+         {languageLabels ? (
+            <div className='chart-container'>
+               <Bar data={languageChartData} options={languageChartOptions} />
+            </div>
+         ) : (
+            ''
+         )}
       </ChartStyles>
    );
 };
