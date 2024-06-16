@@ -14,22 +14,20 @@ const ContributorsSection = ({ contributors }) => {
             {contributors.map((contributor) => (
                <li key={contributor.id}>
                   <Link
-                     className='contributor'
                      href={contributor.html_url}
                      target='_blank'
                      rel='noopener noreferrer'
+                     className='contributor'
                   >
-                  <Image
-                     src={contributor.avatar_url}
-                     height={60}
-                     width={60}
-                     alt={`Profile photo of ${contributor.login}`}
-                     quality={100}
-                     className='image'
-                  />
-                  <p>
-                     {contributor.login}
-                  </p>
+                     <Image
+                        src={contributor.avatar_url}
+                        height={60}
+                        width={60}
+                        alt={`Profile photo of ${contributor.login}`}
+                        quality={100}
+                        className='image'
+                     />
+                     <p>{contributor.login}</p>
                   </Link>
                </li>
             ))}
