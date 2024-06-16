@@ -5,7 +5,12 @@ import Image from 'next/image';
 
 const ContributorsSection = ({ contributors }) => {
    if (!contributors || contributors.length === 0) {
-      return <p>No contributors found.</p>;
+      return (
+         <p className='message'>
+            Unable to fetch contributor data from the repository. Please try
+            again later.
+         </p>
+      );
    }
    return (
       <ContributorsStyles>

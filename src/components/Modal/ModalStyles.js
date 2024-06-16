@@ -20,7 +20,7 @@ export const ModalOverlay = styled.div`
          flex-wrap: wrap;
          align-items: flex-start;
          justify-content: flex-start;
-         gap: 3rem;
+         gap: 2rem;
 
          @media screen {
             @media (max-width: 1100px) {
@@ -54,6 +54,13 @@ export const ModalContent = styled.div`
       top: 10px;
       right: 10px;
       cursor: pointer;
+   }
+
+   .message {
+      font-size: 1.5rem;
+      color: #8D0E26;
+      margin: 0;
+      width: 100%;
    }
 
    @media screen {

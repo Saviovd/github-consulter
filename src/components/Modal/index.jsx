@@ -54,44 +54,44 @@ const Modal = ({
       visible: { opacity: 1, y: 0 },
    };
 
-   return (<>
-      <ModalOverlay>
-         <motion.div
-            className='modal-motion'
-            initial='hidden'
-            animate='visible'
-            exit='hidden'
-            variants={animationVariants}
-            transition={{ duration: 0.5 }}
-         >
-            <ModalContent>
-               <button className='close-button' onClick={closeModal}>
-                  Close
-               </button>
-               <ModalHeader repoDetails={repoDetails} />
-               <div className='charts'>
-                  {stats && languages && (
-                     <ChartsSection
-                        repoDetails={repoDetails}
-                        languages={languages}
-                        commitsCount={stats.commits}
-                        issuesCount={stats.issues}
-                        pullsCount={stats.pullRequests}
-                     />
+   return (
+      <>
+         <ModalOverlay>
+            <motion.div
+               className='modal-motion'
+               initial='hidden'
+               animate='visible'
+               exit='hidden'
+               variants={animationVariants}
+               transition={{ duration: 0.5 }}
+            >
+               <ModalContent>
+                  <button className='close-button' onClick={closeModal}>
+                     Close
+                  </button>
+                  <ModalHeader repoDetails={repoDetails} />
+                  {loadingVisible ? (
+                     <Loading size={50} />
+                  ) : (
+                     <div className='charts'>
+                        {stats && languages && (
+                           <ChartsSection
+                              repoDetails={repoDetails}
+                              languages={languages}
+                              commitsCount={stats.commits}
+                              issuesCount={stats.issues}
+                              pullsCount={stats.pullRequests}
+                           />
+                        )}
+                        <ContributorsSection contributors={contributors} />
+                     </div>
                   )}
-                  <ContributorsSection contributors={contributors} />
-               </div>
-               {loadingVisible && (
-                  <Loading />
-               )}
-               {!loadingVisible && (!languages || languages.length === 0) && (
-                  <p>Unable to fetch languages data. Please try again later.</p>
-               )}
-               <LinksSection repoDetails={repoDetails} />
-            </ModalContent>
-         </motion.div>
-      </ModalOverlay>
-      </>);
+                  <LinksSection repoDetails={repoDetails} />
+               </ModalContent>
+            </motion.div>
+         </ModalOverlay>
+      </>
+   );
 };
 
 const mapStateToProps = (state) => ({

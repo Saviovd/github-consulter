@@ -1,9 +1,24 @@
 import React from 'react';
-import { Chart as ChartJS, ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend } from 'chart.js';
+import {
+   Chart as ChartJS,
+   ArcElement,
+   BarElement,
+   CategoryScale,
+   LinearScale,
+   Tooltip,
+   Legend,
+} from 'chart.js';
 import { Doughnut, Bar } from 'react-chartjs-2';
 import { ChartStyles } from './ChartSectionStyles';
 
-ChartJS.register(ArcElement, BarElement, CategoryScale, LinearScale, Tooltip, Legend);
+ChartJS.register(
+   ArcElement,
+   BarElement,
+   CategoryScale,
+   LinearScale,
+   Tooltip,
+   Legend
+);
 
 const ChartsSection = ({
    repoDetails,
@@ -18,8 +33,14 @@ const ChartsSection = ({
       commitsCount === null ||
       issuesCount === null ||
       pullsCount === null
-   )
-      return null;
+   ) {
+      return (
+         <p className='message'>
+            Unable to fetch statistics data from repository. Please try again
+            later.
+         </p>
+      );
+   }
 
    const chartData = {
       labels: [
