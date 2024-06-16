@@ -6,9 +6,6 @@ const Search = ({ onSearch }) => {
 
    const handleSubmit = (event) => {
       event.preventDefault();
-      if (event.key !== 'Enter') {
-         return;
-      }
       onSearch(username);
    };
 
