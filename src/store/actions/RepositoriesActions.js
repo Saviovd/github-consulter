@@ -5,6 +5,11 @@ export const FETCH_REPOSITORIES_SUCCESS = 'FETCH_REPOSITORIES_SUCCESS';
 export const FETCH_REPOSITORIES_FAILURE = 'FETCH_REPOSITORIES_FAILURE';
 export const SET_SORT_TYPE = 'SET_SORT_TYPE';
 export const CLEAR_ERROR = 'CLEAR_ERROR';
+export const CLEAR_REPOSITORIES = 'CLEAR_REPOSITORIES';
+
+export const clearRepositories = () => ({
+   type: CLEAR_REPOSITORIES,
+});
 
 export const fetchRepositoriesRequest = (username) => ({
    type: FETCH_REPOSITORIES_REQUEST,
@@ -37,12 +42,17 @@ export const fetchRepositories = (username) => async (dispatch) => {
       const response = await axios.get(
          `https://api.github.com/users/${username}/repos`
       );
+
+      if (response.data.length === 0) {
+         throw new Error('No repositories found for this user.');
+      }
+
       dispatch(fetchRepositoriesSuccess(response.data));
    } catch (error) {
       if (error.response && error.response.status === 404) {
          dispatch(fetchRepositoriesFailure('User not found.'));
       } else {
-         dispatch(fetchRepositoriesFailure('No repositories found for this user.'));
+         dispatch(fetchRepositoriesFailure(error.message));
       }
    }
 };
