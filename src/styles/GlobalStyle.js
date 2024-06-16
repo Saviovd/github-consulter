@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      overflow: hidden;
       body {
          background-color: rgba(var(--dark));
          color: rgba(var(--light));
