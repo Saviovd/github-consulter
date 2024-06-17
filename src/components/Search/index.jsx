@@ -11,14 +11,13 @@ const Search = ({ onSearch }) => {
 
    return (
       <>
-         <SearchBarStyles>
+         <SearchBarStyles onSubmit={handleSubmit}>
             <input
                type='text'
                value={username}
                onChange={(e) => setUsername(e.target.value)}
                placeholder='Type GitHub username'
                className='input-text'
-               onKeyUp={handleSubmit}
             />
             <svg
                aria-hidden='true'
